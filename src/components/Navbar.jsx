@@ -329,7 +329,7 @@ export default function BottomNavigation({ rol }) {
                         <img src="/icons/MARITIMO.png" className=" w-[35px]" alt="" />
                         <span className="text-[12px] font-medium text-center">{languaje === 'Español' ? 'Farmacéutico y Sanitario' : 'Pharmaceutical and Healthcare'}</span>
                     </Link>
-                </div>       
+                </div>             
 
                     <Link href='/SolucionesIT' onClick={() => setNav(false)}>
                         <h3 className="text-black text-[12px] font-medium pt-2 pl-5 m-0 bg-[#F1BA06]  border border-[#ffffff38] text-center px-[5px] py-[5px] rounded-[7px] mx-[20px] my-[15px]">{languaje === 'Español' ? 'SOLUCIONES IT' : 'IT SOLUTIONS'}</h3>
