@@ -22,7 +22,10 @@ function Pages() {
     const [query, setQuery] = useState('')
     const [route, setRoute] = useState('')
 
-
+    function sortArray (a, b){
+    console.log(a[0].replaceAll('item', ''))    
+        return (a[0].replaceAll('item', '')*1) - (b[0].replaceAll('item', '') *1)
+    }
 
 
     useEffect(() => {
@@ -60,13 +63,13 @@ function Pages() {
 
                     <table className='w-full mt-[20px] border-collapse	table-fixed'>
                         <caption className='    text-[1.2em] text-left m-[10px]'>{languaje === 'English' &&  cliente[query].tarjetas[route]['subtitle 2EN'] ?  cliente[query].tarjetas[route]['subtitle 2EN'] : cliente[query].tarjetas[route]['subtitle 2']}{}</caption>
-                        {cliente && cliente[query] && cliente[query].tarjetas && cliente[query].tarjetas[route] && cliente[query].tarjetas[route].especificaciones && Object.values(cliente[query].tarjetas[route].especificaciones).map((i, index) => {
+                        {cliente && cliente[query] && cliente[query].tarjetas && cliente[query].tarjetas[route] && cliente[query].tarjetas[route].especificaciones && Object.entries(cliente[query].tarjetas[route].especificaciones).sort(sortArray).map((i, index) => {
                             return <tr>
                                 <th className=' border-[1px]  border-[#ccc] p-[8px] text-left font-bold bg-[#f9f9f9]' >
-                                    {languaje === 'English' &&  i.ipEN ? i.ipEN  : i.ip}
+                                    {languaje === 'English' &&  i[1].ipEN ? i[1].ipEN  : i[1].ip}
                                 </th>
                                 <td className=' border-[1px]  border-[#ccc] p-[8px] text-left break-words'>
-                                    {languaje === 'English' &&  i.icEN ? i.icEN :i.ic}
+                                    {languaje === 'English' &&  i[1].icEN ? i[1].icEN :i[1].ic}
                                 </td>
                             </tr>
                         })}

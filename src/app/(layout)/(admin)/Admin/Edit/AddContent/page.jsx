@@ -104,7 +104,7 @@ export default function Home() {
             <div className="fixed   pb-[100px] lg:pb-0  top-0 left-0 flex justify-center w-full h-auto bg-[#000000b4] p-0 z-40 " >
 
                 <div className="relative w-[95%] h-screen overflow-y-scroll lg:w-[50%] bg-white border-b border-gray-900/10 pt-16 pb-16 lg:pb-4 px-5">
-                    <div className="absolute w-[50px] top-5 right-5 text-white p-1 rounded-tl-lg rounded-br-lg text-center bg-red-600" onClick={close}>
+                    <div className="absolute w-[50px] top-5 right-5 text-white p-1 rounded-tl-lg rounded-br-lg text-center bg-red-600 cursor-pointer" onClick={close}>
                         X
                     </div>
                     <form className="relative  pt-5" onSubmit={saveContent} >
@@ -130,7 +130,7 @@ export default function Home() {
                             <input type="text" name="urlVideo" onChange={onChangeHandler} className="block w-full rounded-md border-0 p-1.5 mt-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-[12px] sm:leading-6" defaultValue={cliente && cliente[query] && cliente[query].tarjetas[route].urlVideo} />
                         </div>
                         <div className="sm:col-span-3">
-                            <label htmlFor="last-name" className="block text-[12px] font-medium leading-6 text-gray-900">Subir Video por URL</label>
+                            <label htmlFor="last-name" className="block text-[12px] font-medium leading-6 text-gray-900">Subir IMG por URL (*Colocar null en input de video y guardar para actualizar)</label>
                             <input type="text" name="urlIMG" onChange={onChangeHandler} className="block w-full rounded-md border-0 p-1.5 mt-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-[12px] sm:leading-6" defaultValue={cliente && cliente[query] && cliente[query].tarjetas[route].urlIMG} />
                         </div>
 
