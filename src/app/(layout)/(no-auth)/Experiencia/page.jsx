@@ -174,7 +174,7 @@ export default function Home() {
 
 
         {cliente.Slider1 && <>
-          <h1 className='text-center font-bold text-[25px] py-[50px] text-white' id='testimonios'>Testimonios</h1>
+          <h1 className='text-center font-bold text-[25px] py-[50px] text-white' id='testimonios'>{languaje !== 'English'  ? 'Testimonios': 'Testimonies' }</h1>
           <SliderTestimonios content={Object.values(cliente.Testimonios)} />
         </>}
 

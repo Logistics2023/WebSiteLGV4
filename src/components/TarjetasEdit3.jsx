@@ -28,18 +28,37 @@ export default function Home() {
     function onChangeHandler5(e, i) {
         setData3({ ...data3, [i]: { ...data3[i], paragraphEN: e } })
     }
+    // console.log(data3[itemEdit])
+
+
+    // function callback() {
+    //     setUserSuccess('')
+    //     setItemEdit[itemEdit]
+    // }
     function saveFrontPage2(e) {
         e.preventDefault()
         setUserSuccess('Cargando')
-        Object.entries(data3).map(i => {
-            let db = { ...i[1] }
-            delete db['file']
-            if (i[1].file && i[1].file !== undefined) {
-                uploadIMG(`/Cliente/${query}/tarjetas/${[i[0]]}`, '/', `/${query}/tarjetas/${[i[0]]}`, i[1].file, db, setUserSuccess)
-            } else {
-                writeUserData(`/Cliente/${option}/`, { [i[0]]: db }, setUserSuccess)
-            }
-        })
+        // data3[itemEdit] === i[1]
+        // itemEdit === i[0]
+        let db = { ...data3[itemEdit] }
+        delete db['file']
+
+
+        if (data3[itemEdit].file && data3[itemEdit].file !== undefined) {
+            uploadIMG(`/Cliente/${query}/tarjetas/${[i[0]]}`, '/', `/${query}/tarjetas/${[itemEdit]}`, data3[itemEdit].file, db, setUserSuccess)
+        } else {
+            writeUserData(`/Cliente/${option}/`, { [itemEdit]: db }, setUserSuccess)
+        }
+
+        // Object.entries(data3).map(i => {
+        //     let db = { ...i[1] }
+        //     delete db['file']
+        //     if (i[1].file && i[1].file !== undefined) {
+        //         uploadIMG(`/Cliente/${query}/tarjetas/${[i[0]]}`, '/', `/${query}/tarjetas/${[i[0]]}`, i[1].file, db, setUserSuccess)
+        //     } else {
+        //         writeUserData(`/Cliente/${option}/`, { [i[0]]: db }, setUserSuccess)
+        //     }
+        // })
     }
 
 
@@ -74,7 +93,7 @@ export default function Home() {
     console.log()
     console.log(data3)
     return (
-         <form className="relative  pt-10" onSubmit={saveFrontPage2} >
+        <form className="relative  pt-10" onSubmit={saveFrontPage2} >
             <Link href={`/Admin/Edit/AddTestimonios?item=Testimonios`} className='fixed bottom-[100px] right-[100px]  rounded-full z-50 block font-medium '>
                 <div className="absolute top-5 left-5  p-1 border text-white border-white rounded-full h-[50px] w-[50px] text-center flex items-center justify-center bg-[#F1BA06]" >
                     ADD
@@ -88,14 +107,14 @@ export default function Home() {
                         <span className='font-bold uppercase w-[50%]'>
                             {i[1][`title`]}
                         </span>
-                        <Link type='button' className=" bg-gradient-to-r from-teal-400 via-teal-500 to-teal-600 rounded-[20px] text-white font-bold py-2 px-4 " href={`/Admin/Edit/AddContent?item=${query}&route=${i[0]}`} >
+                        {/* <Link type='button' className=" bg-gradient-to-r from-teal-400 via-teal-500 to-teal-600 rounded-[20px] text-white font-bold py-2 px-4 " href={`/Admin/Edit/AddContent?item=${query}&route=${i[0]}`} >
                             Mas contenido
-                        </Link>
+                        </Link> */}
                     </div>}
                     {itemEdit === i[0] && <div className='space-y-5 pt-10'>
-                       
+
                         < InputFlotante type="text" name={`title`} id={`floating_6`} onChange={(e) => onChangeHandler3(e, i[0])} value={data3[i[0]] && data3[i[0]]['title'] ? data3[i[0]]['title'] : i[1][`title`]} required label={'Nombre'} shadow='shadow-white' />
-                        < InputFlotante type="text" name={`titleEN`} id={`floating_6`} onChange={(e) => onChangeHandler3(e, i[0])} value={data3[i[0]] && data3[i[0]]['titleEN'] ? data3[i[0]]['titleEN'] : i[1][`titleEN`]} required label={'Nombre'} shadow='shadow-white' />
+                        {/* < InputFlotante type="text" name={`titleEN`} id={`floating_6`} onChange={(e) => onChangeHandler3(e, i[0])} value={data3[i[0]] && data3[i[0]]['titleEN'] ? data3[i[0]]['titleEN'] : i[1][`titleEN`]} required label={'Nombre'} shadow='shadow-white' /> */}
                         <label htmlFor="first-name" className="block text-[12px] font-medium leading-6 text-gray-900">Testimonio</label>
                         <TextEditorSimple value={i[1][`paragraph`]} setValue={(e) => onChangeHandler4(e, i[0])} edit={true} ></TextEditorSimple>
                         <label htmlFor="first-name" className="block text-[12px] font-medium leading-6 text-gray-900">Testimonio (Ingles)</label>

@@ -23,6 +23,7 @@ export default function Home() {
     const [query, setQuery] = useState('')
     const [data, setData] = useState({})
     const [captcha, setCaptcha] = useState('')
+    const [pdfName, setPDFname] = useState('Subir CV PDF')
 
 
 
@@ -35,7 +36,7 @@ export default function Home() {
         setData({ ...data, ...db })
     }
     function handlerOnChangePDF(e) {
-        // setData({ ...data, cv: e.target.files[0] })
+        console.log()
         var fileToLoad = e.target.files[0];
         var fileReader = new FileReader();
         var base64;
@@ -43,6 +44,7 @@ export default function Home() {
             base64 = fileLoadedEvent.target.result;
             console.log(base64);
             setData({ ...data, cv: base64 })
+            setPDFname(e.target.files[0].name)
         };
         fileReader.readAsDataURL(fileToLoad);
     }
@@ -60,7 +62,7 @@ export default function Home() {
         console.log(res)
         // writeUserData(`/Tracking/${data['CODIGO DE SERVICIO']}`, { ...data, ['FECHA DE CREACION']: getDate(new Date()), subItems: data2, trackIcon: db }, setUserSuccess)
     }
-    console.log(captcha)
+    console.log(data.cv)
     function onChange(value) {
         setCaptcha(value);
     }
@@ -75,10 +77,15 @@ export default function Home() {
             <img src="/airplane-bg.jpg" className='fixed  w-screen h-screen  object-cover  ' alt="" />
 
             <div className="fixed h-screen flex justify-center items-end  w-full  bg-[#000000b4] p-0 z-40 " >
-                <div className="relative w-[95%]  max-h-[90vh] overflow-auto lg:w-[50%] bg-white border-b  pt-16 pb-16  px-5">
+                <div className="relative w-[95%]  max-h-[90vh] overflow-auto lg:w-[50%] bg-white border-b  py-5  px-5">
 
                     <form className="relative  pt-5 sm:col-span-3 mb-5 pb-5 border-b-[.5px] " onSubmit={(e) => { saveFrontPage(e,) }}>
+
+                        <div className="absolute w-[50px] top-5 right-5 text-white p-1 rounded-tl-lg rounded-br-lg text-center bg-red-600" onClick={() => router.back()}>
+                            X
+                        </div>
                         <div className='relative  px-2 py-5 my-5 mt-10 bg-white space-y-5'>
+
                             <h5 className='text-center font-medium text-[16px]'>Formulario de Postulación - Logistics Gear {query}<br /> </h5>
                             <br />
                             {/* < InputFlotante type="date" id="floating_5" onChange={(e) => handlerOnChange(e)} value={getDate(new Date())} disabled required label={'Fecha'} shadow='shadow-white' /> */}
@@ -102,7 +109,7 @@ export default function Home() {
 
 
                             <label htmlFor='file' className="w-full flex  justify-center items-center text-white bg-red-500 hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-[12px]  px-5 py-2 text-center" >
-                                Subir CV PDF
+                                {pdfName}
                                 <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M16.568 1.4248L20.3932 5.41231V20.5758H6.10352V20.6253H20.442V5.46249L16.568 1.4248Z" fill="#909090" />
                                     <path d="M16.5205 1.375H6.05469V20.5755H20.3932V5.41269L16.5205 1.375Z" fill="#F4F4F4" />

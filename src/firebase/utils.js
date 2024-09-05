@@ -100,7 +100,10 @@ function writeUserData(rute, object, setUserSuccess) {
     .then(() => {
       setUserSuccess !== null ? setUserSuccess('save') : ''
     })
-    .catch((err) => console.log(err))
+    .catch((err) => {
+      console.log(err)
+
+    })
 }
 
 async function removeData(rute, setUserSuccess, callBack) {

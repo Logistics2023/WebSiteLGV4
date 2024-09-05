@@ -114,7 +114,7 @@ export default function BottomNavigation({ rol }) {
 
 
                 {/* {pathname === '/' && pathname !== '/Login' && pathname !== '/SignUp' && pathname !== '/Register' && <div className="hidden w-screen lg:block md:w-auto " id="navbar-default"> */}
-                {pathname !== '/Login' && pathname !== '/SignUp' && pathname !== '/Register' && <div className="hidden w-screen lg:block md:w-auto " id="navbar-default">
+                {pathname !== '/Glosario' && pathname !== '/Login' && pathname !== '/SignUp' && pathname !== '/Register' && <div className="hidden w-screen lg:block md:w-auto " id="navbar-default">
 
                     <ul className="list-none font-medium flex flex-col p-4 md:p-0 mt-0 rounded-lg md:flex-row md:items-center md:space-x-8  ">
                         <li onClick={() => handlerNavItem('Inicio')}>
@@ -247,6 +247,43 @@ export default function BottomNavigation({ rol }) {
 
                     </ul>
                 </div>}
+
+
+
+                {pathname === '/Glosario' && <div className="hidden w-screen lg:block md:w-auto " id="navbar-default">
+
+                    <ul className="list-none font-medium flex flex-col p-4 md:p-0 mt-0 rounded-lg md:flex-row md:items-center md:space-x-8  ">
+                      
+
+
+                        <li>
+                            {
+                                pathname !== '/Login' && pathname !== '/SignUp' && pathname !== '/Register' && (user
+                                    ? <button className=' relative h-[35px]  z-50 bg-[#F7BE38] p-2 px-5 rounded-[5px] border hidden lg:block' onClick={() => handleSignOut()}>{languaje === 'Español' ? 'Cerrar Sesión' : 'Logout'}</button>
+                                    : <button className=' relative h-[35px] z-50 bg-[#F7BE38]   p-2 px-5 rounded-[5px] border hidden lg:block' onClick={() => router.push('/Login')}>{languaje === 'Español' ? 'Iniciar Sesión' : 'Login'}</button>
+                                )
+                            }
+                        </li>
+                        {pathname !== '/Login' && pathname !== '/SignUp' && pathname !== '/Register' && <li>
+                            <button className='flex items-center text-white h-[35px]  bg-gradient-to-r from-blue-900 via-blue-900 to-blue-900 hover:bg-gradient-to-br focus:ring-2 focus:outline-none focus:ring-blue-800      rounded-[5px] border    text-center  p-2 px-5' onClick={() => window.open('https://sistemas.logisticsgear.net')}>
+                                <svg width="20" height="22" viewBox="0 0 20 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M10 10C11.1046 10 12 9.10457 12 8C12 6.89543 11.1046 6 10 6C8.89543 6 8 6.89543 8 8C8 9.10457 8.89543 10 10 10Z" stroke="white" stroke-width="1.5" />
+                                    <path d="M14 14C14 15.105 14 16 10 16C6 16 6 15.105 6 14C6 12.895 7.79 12 10 12C12.21 12 14 12.895 14 14Z" stroke="white" stroke-width="1.5" />
+                                    <path d="M1 9.417C1 6.219 1 4.62 1.378 4.082C1.755 3.545 3.258 3.03 6.265 2.001L6.838 1.805C8.405 1.268 9.188 1 10 1C10.811 1 11.595 1.268 13.162 1.805L13.735 2.001C16.742 3.03 18.245 3.545 18.622 4.082C19 4.62 19 6.22 19 9.417V10.991C19 13.496 18.163 15.428 17 16.904M1.193 13C2.05 17.298 5.576 19.513 7.899 20.527C8.62 20.842 8.981 21 10 21C11.02 21 11.38 20.842 12.101 20.527C12.68 20.275 13.332 19.947 14 19.533" stroke="white" stroke-width="1.5" stroke-linecap="round" />
+                                </svg>
+                                <span className='ml-5'>
+                                    My LG
+                                </span>
+                            </button>
+                        </li>}
+                        <div className='relative w-[100px]'>
+
+                            {pathname !== '/Login' && pathname !== '/SignUp' && pathname !== '/Register' && <SelectSimple arr={['Español', 'English']} bg='bg-[#F7BE38] text-black border-[#ffffff38]' position={'absolute left-0 px-4'} click={handlerClickSelect} defaultValue={languaje} />}
+
+                        </div>
+
+                    </ul>
+                </div>}
             </div>
         </nav>
 
@@ -329,26 +366,26 @@ export default function BottomNavigation({ rol }) {
                         <img src="/icons/MARITIMO.png" className=" w-[35px]" alt="" />
                         <span className="text-[12px] font-medium text-center">{languaje === 'Español' ? 'Farmacéutico y Sanitario' : 'Pharmaceutical and Healthcare'}</span>
                     </Link>
-                </div>             
+                </div>
 
-                    <Link href='/SolucionesIT' onClick={() => setNav(false)}>
-                        <h3 className="text-black text-[12px] font-medium pt-2 pl-5 m-0 bg-[#F1BA06]  border border-[#ffffff38] text-center px-[5px] py-[5px] rounded-[7px] mx-[20px] my-[15px]">{languaje === 'Español' ? 'SOLUCIONES IT' : 'IT SOLUTIONS'}</h3>
+                <Link href='/SolucionesIT' onClick={() => setNav(false)}>
+                    <h3 className="text-black text-[12px] font-medium pt-2 pl-5 m-0 bg-[#F1BA06]  border border-[#ffffff38] text-center px-[5px] py-[5px] rounded-[7px] mx-[20px] my-[15px]">{languaje === 'Español' ? 'SOLUCIONES IT' : 'IT SOLUTIONS'}</h3>
+                </Link>
+
+                <div className='relative grid grid-cols-2 gap-[20px] p-[20px] pt-[10px] border-[#ffffff38] border-b-[5px] mb-10'>
+                    <Link href='/Calculadora' onClick={() => setNav(false)} className='bg-[#F1BA06]   flex flex-col items-center px-[5px] py-[5px] rounded-[7px]'>
+                        <img src="/icons/CALCULADORA DE PESO CARGABLE.png" className=" w-[35px]" alt="" />
+                        <span className="text-[12px] font-medium text-center">{languaje === 'Español' ? 'Calculadora de peso cargable' : 'Loadable Weight Calculator'}</span>
                     </Link>
-
-                    <div className='relative grid grid-cols-2 gap-[20px] p-[20px] pt-[10px] border-[#ffffff38] border-b-[5px] mb-10'>
-                        <Link href='/Calculadora' onClick={() => setNav(false)} className='bg-[#F1BA06]   flex flex-col items-center px-[5px] py-[5px] rounded-[7px]'>
-                            <img src="/icons/CALCULADORA DE PESO CARGABLE.png" className=" w-[35px]" alt="" />
-                            <span className="text-[12px] font-medium text-center">{languaje === 'Español' ? 'Calculadora de peso cargable' : 'Loadable Weight Calculator'}</span>
-                        </Link>
-                        <Link href='/Impuestos' onClick={() => setNav(false)} className='bg-[#F1BA06]   flex flex-col items-center px-[5px] py-[5px] rounded-[7px]'>
-                            <img src="/icons/CALCULADORA DE IMPUESTOS.png" className=" w-[35px]" alt="" />
-                            <span className="text-[12px] font-medium text-center">{languaje === 'Español' ? 'Calculadora de impuestos' : 'tax calculator'} </span>
-                        </Link>
-                        <Link href='/Tracking' onClick={() => setNav(false)} className='bg-[#F1BA06]   flex flex-col items-center px-[5px] py-[5px] rounded-[7px]'>
-                            <img src="/icons/DIRECCION.png" className=" w-[35px]" alt="" />
-                            <span className="text-[12px] font-medium text-center">{languaje === 'Español' ? 'Tracking' : 'Tracking'}</span>
-                        </Link>
-                    </div>
+                    <Link href='/Impuestos' onClick={() => setNav(false)} className='bg-[#F1BA06]   flex flex-col items-center px-[5px] py-[5px] rounded-[7px]'>
+                        <img src="/icons/CALCULADORA DE IMPUESTOS.png" className=" w-[35px]" alt="" />
+                        <span className="text-[12px] font-medium text-center">{languaje === 'Español' ? 'Calculadora de impuestos' : 'tax calculator'} </span>
+                    </Link>
+                    <Link href='/Tracking' onClick={() => setNav(false)} className='bg-[#F1BA06]   flex flex-col items-center px-[5px] py-[5px] rounded-[7px]'>
+                        <img src="/icons/DIRECCION.png" className=" w-[35px]" alt="" />
+                        <span className="text-[12px] font-medium text-center">{languaje === 'Español' ? 'Tracking' : 'Tracking'}</span>
+                    </Link>
+                </div>
 
 
                 <Link href='/Experiencia' onClick={() => setNav(false)}>
@@ -369,25 +406,25 @@ export default function BottomNavigation({ rol }) {
 
                 {/* <div className='bg-[#00000029] py-10 mt-10'> */}
 
-                    <h3 className=" text-[12px] text-left font-medium pt-2 pl-5 m-0 text-white  px-[5px] py-[5px] rounded-[7px] mx-[20px] my-[15px]">{languaje === 'Español' ? 'GUIA COMEX' : 'COMEX GUIDE'}</h3>
+                <h3 className=" text-[12px] text-left font-medium pt-2 pl-5 m-0 text-white  px-[5px] py-[5px] rounded-[7px] mx-[20px] my-[15px]">{languaje === 'Español' ? 'GUIA COMEX' : 'COMEX GUIDE'}</h3>
 
-                    <div className='relative grid grid-cols-2 gap-[20px] p-[20px] pt-[10px] '>
-                        <Link href='/Contenedores?item=maritimos' onClick={() => setNav(false)} className='bg-[#F1BA06] flex flex-col items-center px-[5px] py-[5px] rounded-[7px]'>
-                            <img src="/icons/TIPOS DE CONTENEDORES MARITIMOS.png" className=" w-[35px]" alt="" />
-                            <span className="text-[12px] font-medium text-center">{languaje === 'Español' ? 'Contenedores maritimos' : 'Maritime containers'}</span>
-                        </Link>
-                        <Link href='/Contenedores?item=aereos' onClick={() => setNav(false)} className='bg-[#F1BA06]   flex flex-col items-center justify-around px-[5px] py-[5px] rounded-[7px]'>
-                            <img src="/icons/TIPOS DE CONTENEDORES AEREOS.png" className=" w-[35px]" alt="" />
-                            <span className="text-[12px] font-medium text-center">{languaje === 'Español' ? 'Contenedores aereos' : 'Air containers'}</span>
-                        </Link>
-                        <Link href='/Glosario' onClick={() => setNav(false)} className='bg-[#F1BA06]   flex flex-col items-center px-[5px] py-[5px] rounded-[7px]'>
-                            <img src="/icons/GLOSARIO.png" className=" w-[35px]" alt="" />
-                            <span className="text-[12px] font-medium text-center">{languaje === 'Español' ? 'Glosario' : 'Glossary'}</span>
-                        </Link>
-                    </div>
-                    <div className='relative grid grid-cols-2 gap-[20px] p-[100px] pt-[10px] '>
+                <div className='relative grid grid-cols-2 gap-[20px] p-[20px] pt-[10px] '>
+                    <Link href='/Contenedores?item=maritimos' onClick={() => setNav(false)} className='bg-[#F1BA06] flex flex-col items-center px-[5px] py-[5px] rounded-[7px]'>
+                        <img src="/icons/TIPOS DE CONTENEDORES MARITIMOS.png" className=" w-[35px]" alt="" />
+                        <span className="text-[12px] font-medium text-center">{languaje === 'Español' ? 'Contenedores maritimos' : 'Maritime containers'}</span>
+                    </Link>
+                    <Link href='/Contenedores?item=aereos' onClick={() => setNav(false)} className='bg-[#F1BA06]   flex flex-col items-center justify-around px-[5px] py-[5px] rounded-[7px]'>
+                        <img src="/icons/TIPOS DE CONTENEDORES AEREOS.png" className=" w-[35px]" alt="" />
+                        <span className="text-[12px] font-medium text-center">{languaje === 'Español' ? 'Contenedores aereos' : 'Air containers'}</span>
+                    </Link>
+                    <Link href='/Glosario' onClick={() => setNav(false)} className='bg-[#F1BA06]   flex flex-col items-center px-[5px] py-[5px] rounded-[7px]'>
+                        <img src="/icons/GLOSARIO.png" className=" w-[35px]" alt="" />
+                        <span className="text-[12px] font-medium text-center">{languaje === 'Español' ? 'Glosario' : 'Glossary'}</span>
+                    </Link>
+                </div>
+                <div className='relative grid grid-cols-2 gap-[20px] p-[100px] pt-[10px] '>
 
-                    </div>
+                </div>
                 {/* </div> */}
 
 

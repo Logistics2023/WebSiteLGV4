@@ -47,6 +47,7 @@ function NavSection2() {
 
     const { user, introVideo, userDB, option, setOption, cliente } = useUser()
     const [query, setQuery] = useState('')
+    
 
     useEffect(() => {
         if (window && typeof window !== "undefined") {
