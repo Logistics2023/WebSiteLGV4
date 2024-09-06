@@ -23,12 +23,12 @@ export default function Home() {
     e.preventDefault()
     let email = e.target[0].value
     let password = e.target[1].value
-    signUpWithEmail(email, password, setUserProfile)
+    signUpWithEmail(email, password, setUserProfile, setUserSuccess)
   }
 
   useEffect(() => {
     user == undefined && onAuth(setUserProfile)
-    user && router.push('/Register')
+    user !== null && user !== undefined && router.replace('/Register')
   }, [user, success]);
 
 

@@ -13,7 +13,7 @@ import TarjetasEdit3 from '@/components/TarjetasEdit3'
 import TarjetasEdit4 from '@/components/TarjetasEdit4'
 import SliderEdit from '@/components/SliderEdit'
 import Contactos from '@/components/Contactos'
-
+import Link from 'next/link'
 
 function NavSection() {
 
@@ -29,13 +29,13 @@ function NavSection() {
         <div className='w-full'>
             <ul className="flex border-b border-[blue] ">
                 <li className={`-mb-px mr-1 ${option === 'Seccion' && 'bg-[#F7BE38] border border-[blue] border-b-transparent'}`} onClick={() => setOption('Seccion')}>
-                    <span className=" inline-block rounded-t py-2 px-2 text-blue-700 font-semibold" href="#">Seccion</span>
+                    <Link className=" inline-block rounded-t py-2 px-2 text-blue-700 font-semibold" href="#">Seccion</Link>
                 </li>
                 <li className={`-mb-px mr-1 ${option === 'MiniTarjetas' && 'bg-[#F7BE38] border border-[blue] border-b-transparent'}`} onClick={() => setOption('MiniTarjetas')}>
-                    <span className=" inline-block rounded-t py-2 px-2 text-blue-500 font-semibold" href="#">MiniTarjetas</span>
+                    <Link className=" inline-block rounded-t py-2 px-2 text-blue-500 font-semibold" href="#">MiniTarjetas</Link>
                 </li>
                 {query !== 'inicio' && <li className={`-mb-px mr-1 ${option === 'Tarjetas' && 'bg-[#F7BE38] border border-[blue] border-b-transparent'}`} onClick={() => setOption('Tarjetas')}>
-                    <span className=" inline-block rounded-t py-2 px-2 text-blue-500  font-semibold" href="#">Tarjetas</span>
+                    <Link className=" inline-block rounded-t py-2 px-2 text-blue-500  font-semibold" href="#">Tarjetas</Link>
                 </li>}
             </ul>
         </div>
@@ -51,32 +51,32 @@ function NavSection2() {
 
     useEffect(() => {
         if (window && typeof window !== "undefined") {
-            setQuery(window.location.href.split('=')[1])
+            setQuery(window.location.href.split('=')[1].split('&')[0])
         }
     }, [cliente, option])
     return (
         <div className='w-full'>
             <ul className="flex border-b border-[blue] ">
                 <li className={`-mb-px mr-1 ${option === 'Seccion' && 'bg-[#F7BE38] border border-[blue] border-b-transparent'}`} onClick={() => setOption('Seccion')}>
-                    <span className=" inline-block rounded-t py-2 px-2 text-blue-700 font-semibold cursor-pointer" href="#">Seccion</span>
+                    <Link className=" inline-block rounded-t py-2 px-2 text-blue-700 font-semibold cursor-pointer" href={`/Seccion?item=${query}&opcion=seccion`}>Seccion</Link>
                 </li>
                 <li className={`-mb-px mr-1 ${option === 'MiniTarjetas' && 'bg-[#F7BE38] border border-[blue] border-b-transparent'}`} onClick={() => setOption('MiniTarjetas')}>
-                    <span className=" inline-block rounded-t py-2 px-2 text-blue-500 font-semibold cursor-pointer" href="#">MiniTarjetas</span>
+                    <Link className=" inline-block rounded-t py-2 px-2 text-blue-500 font-semibold cursor-pointer" href="#">MiniTarjetas</Link>
                 </li>
                <li className={`-mb-px mr-1 ${option === 'Tarjetas' && 'bg-[#F7BE38] border border-[blue] border-b-transparent'}`} onClick={() => setOption('Tarjetas')}>
-                    <span className=" inline-block rounded-t py-2 px-2 text-blue-500  font-semibold cursor-pointer" href="#">Tarjetas</span>
+                    <Link className=" inline-block rounded-t py-2 px-2 text-blue-500  font-semibold cursor-pointer" href="#">Tarjetas</Link>
                 </li>
                 <li className={`-mb-px mr-1 ${option === 'Slider1' && 'bg-[#F7BE38] border border-[blue] border-b-transparent'}`} onClick={() => setOption('Slider1')}>
-                    <span className=" inline-block rounded-t py-2 px-2 text-blue-500 font-semibold cursor-pointer" href="#">Clientes</span>
+                    <Link className=" inline-block rounded-t py-2 px-2 text-blue-500 font-semibold cursor-pointer" href="#">Clientes</Link>
                 </li>
                 <li className={`-mb-px mr-1 ${option === 'Slider2' && 'bg-[#F7BE38] border border-[blue] border-b-transparent'}`} onClick={() => setOption('Slider2')}>
-                    <span className=" inline-block rounded-t py-2 px-2 text-blue-500 font-semibold cursor-pointer" href="#">Socios</span>
+                    <Link className=" inline-block rounded-t py-2 px-2 text-blue-500 font-semibold cursor-pointer" href="#">Socios</Link>
                 </li>
                 <li className={`-mb-px mr-1 ${option === 'Slider3' && 'bg-[#F7BE38] border border-[blue] border-b-transparent'}`} onClick={() => setOption('Slider3')}>
-                    <span className=" inline-block rounded-t py-2 px-2 text-blue-500 font-semibold cursor-pointer" href="#">Empresas</span>
+                    <Link className=" inline-block rounded-t py-2 px-2 text-blue-500 font-semibold cursor-pointer" href="#">Empresas</Link>
                 </li>
                 <li className={`-mb-px mr-1 ${option === 'Testimonios' && 'bg-[#F7BE38] border border-[blue] border-b-transparent'}`} onClick={() => setOption('Testimonios')}>
-                    <span className=" inline-block rounded-t py-2 px-2 text-blue-500 font-semibold cursor-pointer" href="#">Testimonios</span>
+                    <Link className=" inline-block rounded-t py-2 px-2 text-blue-500 font-semibold cursor-pointer" href="#">Testimonios</Link>
                 </li>
             </ul>
         </div>

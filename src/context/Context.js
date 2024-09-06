@@ -75,7 +75,15 @@ export function UserProvider({ children }) {
 		setItem(data)
 	}
 	const setUserSuccess = (data) => {
-		setSuccess(data)
+		if (success === '') {
+			setSuccess(data)
+			const timer = setTimeout(() => {
+				setSuccess('')
+				console.log('timer')
+				return clearTimeout(timer)
+			}, 6000)
+		
+		}
 	}
 
 	const value = useMemo(() => {
