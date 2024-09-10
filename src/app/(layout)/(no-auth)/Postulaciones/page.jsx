@@ -195,7 +195,6 @@ export default function Home() {
             {modal === 'Error de validacion de tu correo' && <Error>{modal}</Error>}
             {modal === 'Postulación enviada' && <Success>Postulación enviada, quedate atento al correo!</Success>}
             {modal === 'Error de envio' && <Error>{modal}</Error>}
-            <Error>Postulación enviada!</Error>
         </div>
     )
 }
