@@ -22,16 +22,6 @@ import { PDFDocument } from 'pdf-lib';
 
 
 
-export const config = {
-    api: {
-        bodyParser: {
-            sizeLimit: '10mb', // Límite de tamaño del cuerpo (10 MB)
-        },
-    },
-};
-
-
-
 
 
 
