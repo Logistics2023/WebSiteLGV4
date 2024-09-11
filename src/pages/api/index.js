@@ -40,13 +40,13 @@ export default function handler(req, res) {
                 text: `
                 Nombre: ${req.body['Nombre completo']}\n
                 Email: ${req.body['Correo electrónico']}\n
-                Área: ${req.body['Área a postula']}\n
                 Celular: ${req.body['Celular']}\n
                 Residencia: ${req.body['Lugar de residencia']}\n
                 Tipo de postulación: ${req.body['Tipo de postulación']}\n
+                Área: ${req.body['Área a postula']}\n
                 ${req.body['Tipo de postulación'] && req.body['Tipo de postulación'] === 'Prácticas profesionales' ? `
-                    Estudia actualmente: ${req.body['Estudia actualmente']? 'Si' :'No'}\n
-                    Institucion educativa: ${req.body['Institucion educativa']}\n
+                Estudia actualmente: ${req.body['Estudia actualmente'] ? 'Si' : 'No'}\n
+                Institucion educativa: ${req.body['Institucion educativa']}\n
                     `: ''}
                 `,
                 attachments: [
