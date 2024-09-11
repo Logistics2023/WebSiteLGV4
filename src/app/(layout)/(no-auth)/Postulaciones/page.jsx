@@ -49,9 +49,9 @@ export default function Home() {
 
     function handlerOnChangePDF(e) {
 console.log((e.target.files[0].size / 1024 / 1024).toFixed(2) > 3)
-        if ((e.target.files[0].size / 1024 / 1024).toFixed(2) > 3) {
+        if ((e.target.files[0].size / 1024 / 1024).toFixed(2) > 5) {
             console.log('con')
-            setModal('El PDF no puede ser mayor a 3mb')
+            setModal('El PDF no puede ser mayor a 5mb')
             return
         }
         console.log((e.target.files[0].size / 1024 / 1024).toFixed(2))
@@ -191,7 +191,7 @@ console.log((e.target.files[0].size / 1024 / 1024).toFixed(2) > 3)
             {modal === 'Error de validacion de tu correo' && <Error>{modal}</Error>}
             {modal === 'Postulación enviada' && <Success>{modal}</Success>}
             {modal === 'Error de envio' && <Error>{modal}</Error>}
-            {modal === 'El PDF no puede ser mayor a 3mb' && <Error>{modal}</Error>}
+            {modal === 'El PDF no puede ser mayor a 5mb' && <Error>{modal}</Error>}
 
         </div>
     )

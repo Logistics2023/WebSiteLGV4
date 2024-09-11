@@ -219,12 +219,12 @@ export default function Home() {
   }
   function filterTracking(e) {
     e.preventDefault()
-
-    if (userDB) {
       router.push(`/Tracking?item=${code}`)
-    } else {
-      setModal('REGISTRATE')
-    }
+
+    // if (userDB) {
+    // } else {
+    //   setModal('REGISTRATE')
+    // }
   }
   function handlerElement(data) {
     if (userDB) {
