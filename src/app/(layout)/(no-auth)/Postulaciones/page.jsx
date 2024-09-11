@@ -48,7 +48,13 @@ export default function Home() {
 
 
     function handlerOnChangePDF(e) {
-        console.log((e.target.files[0].size/ 1024/1024).toFixed(2))
+console.log((e.target.files[0].size / 1024 / 1024).toFixed(2) > 3)
+        if ((e.target.files[0].size / 1024 / 1024).toFixed(2) > 3) {
+            console.log('con')
+            setModal('El PDF no puede ser mayor a 3mb')
+            return
+        }
+        console.log((e.target.files[0].size / 1024 / 1024).toFixed(2))
         var fileToLoad = e.target.files[0];
         var fileReader = new FileReader();
         var base64;
@@ -81,14 +87,14 @@ export default function Home() {
             body: JSON.stringify(data)
         })
         const resData = await res.json()
-        if (resData?.success !== undefined && resData?.success === 'true' ) {
+        if (resData?.success !== undefined && resData?.success === 'true') {
             setModal('Postulación enviada')
-        } else if (resData?.success !== undefined && resData?.success === false && resData.err.code ==='EENVELOPE'){
+        } else if (resData?.success !== undefined && resData?.success === false && resData.err.code === 'EENVELOPE') {
             setModal('Error de validacion de tu correo')
         } else {
             setModal('Error de envio')
         }
-        
+
         console.log(resData)
         // writeUserData(`/Tracking/${data['CODIGO DE SERVICIO']}`, { ...data, ['FECHA DE CREACION']: getDate(new Date()), subItems: data2, trackIcon: db }, setUserSuccess)
     }
@@ -181,10 +187,12 @@ export default function Home() {
             </div>
 
 
-            {modal=== 'Enviando Postulacion...' && <Loader>{modal}</Loader>}
+            {modal === 'Enviando Postulacion...' && <Loader>{modal}</Loader>}
             {modal === 'Error de validacion de tu correo' && <Error>{modal}</Error>}
-            {modal === 'Postulación enviada' && <Success>Postulación enviada, quedate atento al correo!</Success>}
+            {modal === 'Postulación enviada' && <Success>{modal}</Success>}
             {modal === 'Error de envio' && <Error>{modal}</Error>}
+            {modal === 'El PDF no puede ser mayor a 3mb' && <Error>{modal}</Error>}
+
         </div>
     )
 }
