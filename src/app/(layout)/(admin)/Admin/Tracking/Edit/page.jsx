@@ -142,11 +142,11 @@ export default function Home() {
                             <h5 className='text-center font-medium text-[16px]'>STATUS +<br /> </h5>
                             {data2 && data2 && Object.values(data2).map((item, index) => {
                                 return <div className=' space-y-5 border-b md:grid md:grid-cols-2 md:place-items-end md:gap-2  border-[#818181] pb-5'>
-                                    < InputFlotante type="text" name={`ip`} uid={`column_${index}`} onChange={(e) => onChangeHandler2(e, index,)} value={data2[`item${index}`] && data2[`item${index}`][`ip`] ? data2[`item${index}`][`ip`] : item[`ip`]} required label={'Item'} shadow='shadow-white' />
+                                    < InputFlotante type="date" name={`ip`} uid={`column_${index}`} onChange={(e) => onChangeHandler2(e, index,)} value={data2[`item${index}`] && data2[`item${index}`][`ip`] ? data2[`item${index}`][`ip`] : item[`ip`]} required label={'Item'} shadow='shadow-white' />
                                     < InputFlotante type="text" name={`ic`} uid={`value_${index}`} onChange={(e) => onChangeHandler2(e, index,)} value={data2[`item${index}`] && data2[`item${index}`][`ic`] ? data2[`item${index}`][`ic`] : item[`ic`]} required label={'Valor'} shadow='shadow-white' />
                                
                                
-                                    < InputFlotante type="text" name={`ipEN`} uid={`columnEN_${index}`} onChange={(e) => onChangeHandler2(e, index,)} value={data2[`item${index}`] && data2[`item${index}`][`ipEN`] ? data2[`item${index}`][`ipEN`] : item[`ipEN`]} required label={'Item Ingles'} shadow='shadow-white' />
+                                    < InputFlotante type="date" name={`ipEN`} uid={`columnEN_${index}`} onChange={(e) => onChangeHandler2(e, index,)} value={data2[`item${index}`] && data2[`item${index}`][`ipEN`] ? data2[`item${index}`][`ipEN`] : item[`ipEN`]} required label={'Item Ingles'} shadow='shadow-white' />
                                     < InputFlotante type="text" name={`icEN`} uid={`valueEN_${index}`} onChange={(e) => onChangeHandler2(e, index,)} value={data2[`item${index}`] && data2[`item${index}`][`icEN`] ? data2[`item${index}`][`icEN`] : item[`icEN`]} required label={'Valor Ingles'} shadow='shadow-white' />
                                
                                
