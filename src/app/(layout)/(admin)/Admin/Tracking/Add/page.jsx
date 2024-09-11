@@ -105,11 +105,11 @@ export default function Home() {
 
                             {data2 && data2 !== undefined && Object.values(data2).map((i, index) => {
                                 return <div className=' space-y-5 lg:grid lg:grid-cols-2 lg:place-items-end lg:gap-5 border-b border-[#818181] pb-5'>
-                                    < InputFlotante type="date" name={`ip`} uid={`column_${index}`} onChange={(e) => onChangeHandler2(e, index, 'd4')} value={data2[`item${index}`][`ip`] && data2[`item${index}`][`ip`] ? data2[`item${index}`][`ip`] : i[`ip`]} required label={'Item'} shadow='shadow-white' />
-                                    < InputFlotante type="text" name={`ic`} uid={`value_${index}`} onChange={(e) => onChangeHandler2(e, index, 'd4')} value={data2[`item${index}`][`ic`] && data2[`item${index}`][`ic`] ? data2[`item${index}`][`ic`] : i[`ic`]} required label={'Valor'} shadow='shadow-white' />
+                                    < InputFlotante type="text" name={`ip`} uid={`column_${index}`} onChange={(e) => onChangeHandler2(e, index, 'd4')} value={data2[`item${index}`][`ip`] && data2[`item${index}`][`ip`] ? data2[`item${index}`][`ip`] : i[`ip`]} required label={'Item'} shadow='shadow-white' />
+                                    < InputFlotante type="date" name={`ic`} uid={`value_${index}`} onChange={(e) => onChangeHandler2(e, index, 'd4')} value={data2[`item${index}`][`ic`] && data2[`item${index}`][`ic`] ? data2[`item${index}`][`ic`] : i[`ic`]} required label={'Valor'} shadow='shadow-white' />
 
-                                    < InputFlotante type="date" name={`ipEN`} uid={`columnEN_${index}`} onChange={(e) => onChangeHandler2(e, index, 'd4')} value={data2[`item${index}`][`ipEN`] && data2[`item${index}`][`ipEN`] ? data2[`item${index}`][`ipEN`] : i[`ipEN`]}  label={'Item ingles'} shadow='shadow-white' />
-                                    < InputFlotante type="text" name={`icEN`} uid={`valueEN_${index}`} onChange={(e) => onChangeHandler2(e, index, 'd4')} value={data2[`item${index}`][`icEN`] && data2[`item${index}`][`icEN`] ? data2[`item${index}`][`icEN`] : i[`icEN`]}  label={'Valor ingles'} shadow='shadow-white' />
+                                    < InputFlotante type="text" name={`ipEN`} uid={`columnEN_${index}`} onChange={(e) => onChangeHandler2(e, index, 'd4')} value={data2[`item${index}`][`ipEN`] && data2[`item${index}`][`ipEN`] ? data2[`item${index}`][`ipEN`] : i[`ipEN`]}  label={'Item ingles'} shadow='shadow-white' />
+                                    < InputFlotante type="date" name={`icEN`} uid={`valueEN_${index}`} onChange={(e) => onChangeHandler2(e, index, 'd4')} value={data2[`item${index}`][`icEN`] && data2[`item${index}`][`icEN`] ? data2[`item${index}`][`icEN`] : i[`icEN`]}  label={'Valor ingles'} shadow='shadow-white' />
                                 </div>
                             })
                             }
