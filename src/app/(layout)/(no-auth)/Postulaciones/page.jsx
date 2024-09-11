@@ -48,7 +48,7 @@ export default function Home() {
 
 
     function handlerOnChangePDF(e) {
-        console.log()
+        console.log((e.target.files[0].size/ 1024/1024).toFixed(2))
         var fileToLoad = e.target.files[0];
         var fileReader = new FileReader();
         var base64;
