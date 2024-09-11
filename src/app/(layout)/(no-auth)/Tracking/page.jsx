@@ -169,10 +169,10 @@ function Pages() {
                         {db && db.subItems && Object.values(db.subItems).map((item, index) => {
                             return <tr>
                                 <th className=' border-[1px]  border-[#ccc] p-[8px] text-left font-bold bg-[#f9f9f9]' >
-                                    {languaje === 'English' && item[`ipEN`] ? item[`ipEN`] : item[`ip`]}
+                                    {languaje === 'English' && item[`ipEN`] ? item[`ipEN`].split('-').reverse().toString().replaceAll(',', '-') : item[`ip`].split('-').reverse().toString().replaceAll(',', '-')}
                                 </th>
                                 <td className=' border-[1px]  border-[#ccc] p-[8px] text-left break-words'>
-                                    {languaje === 'English' && item[`icEN`] ? item[`icEN`] : item[`ic`]}
+                                    {languaje === 'English' && item[`icEN`] ? item[`icEN`].split('-').reverse().toString().replaceAll(',', '-') : item[`ic`].split('-').reverse().toString().replaceAll(',', '-')}
                                 </td>
                             </tr>
                         })
